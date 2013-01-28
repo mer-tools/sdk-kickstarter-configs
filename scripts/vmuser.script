@@ -8,7 +8,11 @@
 echo "mersdk ALL=NOPASSWD: ALL" > /etc/sudoers.d/mersdk
 chmod 440 /etc/sudoers.d/mersdk
 
-# We will need to map the targets area to the targets on the host
+# Until VirtualBox shared folders support mmap/caching we need to
+# map the targets area to the /host_targets/ on the host and rsync
+# to/from /srv/mer/targets/
+mkdir -p /host_targets
+chown mersdk /host_targets
 mkdir -p /srv/mer/targets
 chown mersdk /srv/mer/targets
 
