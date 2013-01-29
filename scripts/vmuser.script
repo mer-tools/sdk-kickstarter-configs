@@ -16,6 +16,9 @@ chown mersdk /host_targets
 mkdir -p /srv/mer/targets
 chown mersdk /srv/mer/targets
 
+# Emulate the directory structure of a chroot platform SDK
+ln -s / /parentroot
+
 # Anticipate exporting Qt target information to sysroots to improve
 # performance for building
 mkdir -p /srv/mer/sysroots
